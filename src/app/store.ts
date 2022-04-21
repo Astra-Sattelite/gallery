@@ -1,0 +1,13 @@
+import { createSlice, configureStore, combineReducers } from '@reduxjs/toolkit'
+import { testCompSlice } from '../components/testComp/testCompSlice';
+
+export const store = configureStore({
+  reducer: {
+    testComp: testCompSlice.reducer
+  }
+})
+
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>
+// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
+export type AppDispatch = typeof store.dispatch
